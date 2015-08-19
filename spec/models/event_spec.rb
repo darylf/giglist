@@ -8,6 +8,18 @@ RSpec.describe Event, type: :model do
     expect(event).to be_valid
   end
 
+  context 'display_name' do
+    it 'should display the date and name' do
+      event.name = 'FooBar Fest'
+      event.start_date = '2000-01-01'
+      expect(event.display_name).to eq("2000-01-01 - FooBar Fest")
+    end
+    it 'should display venue name when name is blank' do
+      event.name = nil
+      expect(event.display_name).to eq("#{event.start_date} - #{event.venue.name}")
+    end
+  end
+
   context 'start_date' do
     it 'should be required' do
       event.start_date = nil

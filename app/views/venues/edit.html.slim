@@ -1,0 +1,9 @@
+h2 Edit venue
+
+= form_for @venue do |f|
+  p
+    = f.label :name
+    = f.text_field :name
+
+  p
+    = f.submit 'Save'

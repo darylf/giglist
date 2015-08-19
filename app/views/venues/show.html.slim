@@ -1,0 +1,9 @@
+- content_for(:title, @venue.name)
+
+h1= @venue.name
+
+- unless @venue.events.empty?
+  - @venue.events.each do |event|
+    p=link_to event.display_name, event_path(event)
+
+p=link_to 'Edit', edit_venue_path(@venue)

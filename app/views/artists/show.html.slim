@@ -1,0 +1,9 @@
+- content_for(:title, @artist.name)
+
+h1= @artist.name
+
+- unless @artist.events.empty?
+  - @artist.events.each do |event|
+    p=link_to event.display_name, event_path(event)
+
+p=link_to 'Edit', edit_artist_path(@artist)

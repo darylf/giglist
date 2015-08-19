@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
 
   def index
-    @venues = Venue.all
+    @venues = Venue.order('LOWER(name)')
   end
 
   def show

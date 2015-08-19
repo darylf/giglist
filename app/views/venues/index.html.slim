@@ -1,0 +1,12 @@
+- content_for(:title, 'Venues')
+
+table
+  thead
+    tr
+      th Name
+  tbody
+    - @venues.each do |venue|
+      tr
+        td= link_to venue.name, venue
+
+  

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  # root 'welcome#index'
+  root 'events#index'
+  
   resources :artists, except: :destroy
   resources :events, except: :destroy
   resources :venues, except: :destroy

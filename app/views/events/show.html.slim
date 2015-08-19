@@ -1,0 +1,10 @@
+- content_for(:title, @event.name)
+h1= @event.name
+
+p
+  b Date:
+  = @event.start_date
+
+- unless @event.artists.empty?
+  - @event.artists.each do |artist|
+    p=link_to artist.name, event_path(artist)

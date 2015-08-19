@@ -1,0 +1,12 @@
+- content_for(:title, 'Artists')
+
+table
+  thead
+    tr
+      th Name
+  tbody
+    - @artists.each do |artist|
+      tr
+        td= link_to artist.name, artist
+
+  
