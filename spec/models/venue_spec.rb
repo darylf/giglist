@@ -1,8 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Venue, :type => :model do
-
-  let(:venue) { FactoryGirl.build(:venue) }
+RSpec.describe Venue, type: :model do
+  let(:venue) { build(:venue) }
 
   it 'should create a valid venue object' do
     expect(venue).to be_valid
@@ -14,5 +13,4 @@ RSpec.describe Venue, :type => :model do
       expect(venue).to be_invalid
     end
   end
-
 end

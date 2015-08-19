@@ -1,0 +1,10 @@
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+  Exclude:
+    - db/schema.rb
+
+# I don't find comments on the top of files worthwhile yet.
+Style/Documentation:
+  Enabled: false

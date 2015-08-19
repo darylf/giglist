@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Artist, type: :model do
-
-  let(:artist) { FactoryGirl.build(:artist) }
+  let(:artist) { build(:artist) }
 
   it 'should create a valid artist object' do
     expect(artist).to be_valid
@@ -14,5 +13,4 @@ RSpec.describe Artist, type: :model do
       expect(artist).to be_invalid
     end
   end
-
 end

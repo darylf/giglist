@@ -1,7 +1,10 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+if Rails.env.production?
+  abort('The Rails environment is running in production mode!')
+end
+
 require 'spec_helper'
 require 'rspec/rails'
 # Rails is not loaded until this point!
@@ -10,8 +13,9 @@ require 'rspec/rails'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
 
+  require 'factory_girl'
+  config.include FactoryGirl::Syntax::Methods
 end

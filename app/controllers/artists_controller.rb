@@ -1,5 +1,4 @@
 class ArtistsController < ApplicationController
-
   def index
     @artists = Artist.order('LOWER(name)')
   end
@@ -33,8 +32,9 @@ class ArtistsController < ApplicationController
       render :edit
     end
   end
-  
+
   private
+
   def artist_params
     params.require(:artist).permit(:name)
   end

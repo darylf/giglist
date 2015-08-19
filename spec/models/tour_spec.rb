@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Tour, type: :model do
-
-  let(:tour) { FactoryGirl.build(:tour) }
+  let(:tour) { build(:tour) }
 
   it 'should create a valid tour object' do
     expect(tour).to be_valid
@@ -14,5 +13,4 @@ RSpec.describe Tour, type: :model do
       expect(tour).to be_invalid
     end
   end
-
 end

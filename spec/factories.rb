@@ -1,5 +1,4 @@
-FactoryGirl.define do 
-
+FactoryGirl.define do
   factory :tour do
     name 'Summer Sanitarium'
   end
@@ -21,5 +20,4 @@ FactoryGirl.define do
     artist
     event
   end
-
 end
