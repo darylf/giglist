@@ -9,6 +9,7 @@ gem 'slim-rails'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
+  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0'
   gem 'spring'
