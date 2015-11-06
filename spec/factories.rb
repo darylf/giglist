@@ -1,14 +1,14 @@
 FactoryGirl.define do
   factory :tour do
-    name 'Summer Sanitarium'
+    sequence(:name) { |n| "European Tour #{n}}" }
   end
 
   factory :artist do
-    name 'Metallica'
+    sequence(:name) { |n| "Metal Band #{n}}" }
   end
 
   factory :venue do
-    name 'Madison Square Garden'
+    sequence(:name) { |n| "Awesome Arena #{n}}" }
   end
 
   factory :event do

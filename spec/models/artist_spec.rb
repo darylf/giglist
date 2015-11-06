@@ -12,5 +12,10 @@ RSpec.describe Artist, type: :model do
       artist.name = nil
       expect(artist).to be_invalid
     end
+
+    it 'should be unique' do
+      create(:artist, name: artist.name)
+      expect(artist).to be_invalid
+    end
   end
 end

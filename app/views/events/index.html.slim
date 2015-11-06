@@ -1,0 +1,9 @@
+- content_for(:title, 'Events')
+
+.row
+  - @events.each do |event|
+    .large-4.small-6.columns
+        img src="http://placehold.it/1000x1000&text=Thumbnail" /
+        .panel
+          h5= link_to event.display_name, event
+          h6.subheader= event.start_date

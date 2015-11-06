@@ -1,10 +1,9 @@
 - content_for(:title, 'Artists')
 
-table
-  thead
-    tr
-      th Name
-  tbody
-    - @artists.each do |artist|
-      tr
-        td= link_to artist.name, artist
+.row
+  - @artists.each do |artist|
+    .large-4.small-6.columns
+        img src="http://placehold.it/1000x1000&text=Thumbnail" /
+        .panel
+          h5= link_to artist.name, artist
+          h6.subheader $000.00

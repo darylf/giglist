@@ -37,6 +37,7 @@ describe ArtistsController do
     describe 'with valid params' do
       it 'creates a new Artist' do
         expect do
+          # byebug
           post :create, artist: valid_attributes
         end.to change(Artist, :count).by(1)
       end

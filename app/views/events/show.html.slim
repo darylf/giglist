@@ -1,10 +1,30 @@
 - content_for(:title, @event.name)
+
+.row
+  .large-12.columns
+    .panel
+      .row
+        .large-2.small-6.columns
+          img src=("http://placehold.it/300x300&text=Site Owner") /
+        .large-10.small-6.columns
+          strong= @event.name
+          hr/
+          | Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis
+
+
 h1= @event.name
 
 p
-  b Date:
+  b Date: 
   = @event.start_date
 
+p
+  b Venue: 
+  = link_to @event.venue_name, @event.venue
+
 - unless @event.artists.empty?
+  p
+    b Artists
+  ul
   - @event.artists.each do |artist|
-    p=link_to artist.name, event_path(artist)
+    li=link_to artist.name, artist_path(artist)

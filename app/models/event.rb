@@ -10,9 +10,13 @@ class Event < ActiveRecord::Base
 
   def display_name
     if name.nil?
-      "#{start_date} - #{venue.name}"
+      "#{venue.name}"
     else
-      "#{start_date} - #{name}"
+      "#{name}"
     end
+  end
+
+  def venue_name
+    venue.name
   end
 end
