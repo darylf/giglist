@@ -3,6 +3,7 @@ ruby '2.2.2'
 
 gem 'rails', '4.2.4'
 
+gem 'devise'
 gem 'foundation-rails'
 gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0'

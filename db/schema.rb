@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150807024239) do
+ActiveRecord::Schema.define(version: 20151113014930) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",       null: false
@@ -45,11 +45,38 @@ ActiveRecord::Schema.define(version: 20150807024239) do
   add_index "lineups", ["artist_id", "event_id", "sort_order"], name: "index_lineups_on_artist_id_and_event_id_and_sort_order"
   add_index "lineups", ["artist_id", "event_id"], name: "index_lineups_on_artist_id_and_event_id"
 
+  create_table "temp", id: false, force: :cascade do |t|
+    t.integer "id"
+    t.integer "arist_id"
+    t.integer "event_id"
+    t.integer "sort_order"
+    t.string  "created_at"
+    t.string  "updated_at"
+  end
+
   create_table "tours", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "venues", force: :cascade do |t|
     t.string   "name",       null: false

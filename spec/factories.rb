@@ -1,4 +1,7 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :user do
+    
+  end
+
   factory :tour do
     sequence(:name) { |n| "European Tour #{n}}" }
   end

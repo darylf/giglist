@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  root 'events#index'
+  devise_for :users
   resources :artists, except: :destroy
   resources :events, except: :destroy
   resources :venues, except: :destroy
+
+  root 'events#index'
 end
