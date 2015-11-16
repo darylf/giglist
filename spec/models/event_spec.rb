@@ -10,13 +10,11 @@ RSpec.describe Event, type: :model do
   context 'display_name' do
     it 'should display the date and name' do
       event.name = 'FooBar Fest'
-      event.start_date = '2000-01-01'
-      expect(event.display_name).to eq('2000-01-01 - FooBar Fest')
+      expect(event.display_name).to eq('FooBar Fest')
     end
     it 'should display venue name when name is blank' do
-      good_value = "#{event.start_date} - #{event.venue.name}"
       event.name = nil
-      expect(event.display_name).to eq(good_value)
+      expect(event.display_name).to eq("#{event.start_date} - #{event.venue.name}")
     end
   end
 

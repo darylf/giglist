@@ -1,5 +1,11 @@
-FactoryGirl.define do  factory :user do
+FactoryGirl.define do
+  factory :concerts_user do
     
+  end
+  factory :user do
+    sequence(:email) { |n| "user-#{n}@example.com"}    
+    password "testtest" 
+    password_confirmation "testtest" 
   end
 
   factory :tour do
