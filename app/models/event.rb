@@ -1,4 +1,4 @@
-class Event < ActiveRecord::Base
+class Event < ApplicationRecord
   has_many :lineups, -> { order('sort_order, name asc') }
   has_many :artists, through: :lineups
 

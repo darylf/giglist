@@ -1,2 +1,2 @@
-class ConcertsUser < ActiveRecord::Base
+class ConcertsUser < ApplicationRecord
 end

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.2.4'
+gem 'rails', '~> 5.1.2'
 gem 'pg'
 
 gem 'devise'
@@ -10,10 +10,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'slim-rails'
 gem 'susy'
 gem 'uglifier', '>= 1.3.0'
-
-group :development do
-  gem 'quiet_assets'
-end
 
 group :development, :test do
   gem 'database_cleaner'
