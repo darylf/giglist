@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
 
-gem 'rails', '4.2.4'
+gem 'rails', '~> 4.2.4'
+gem 'pg'
 
 gem 'devise'
 gem 'foundation-rails'
@@ -20,9 +20,4 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0'
   gem 'spring'
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
 end

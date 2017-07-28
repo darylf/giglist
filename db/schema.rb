@@ -13,13 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20151114000537) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "artists", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "artists", ["name"], name: "index_artists_on_name"
+  add_index "artists", ["name"], name: "index_artists_on_name", using: :btree
 
   create_table "concerts_users", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -36,8 +39,8 @@ ActiveRecord::Schema.define(version: 20151114000537) do
     t.integer  "tour_id"
   end
 
-  add_index "events", ["tour_id"], name: "index_events_on_tour_id"
-  add_index "events", ["venue_id"], name: "index_events_on_venue_id"
+  add_index "events", ["tour_id"], name: "index_events_on_tour_id", using: :btree
+  add_index "events", ["venue_id"], name: "index_events_on_venue_id", using: :btree
 
   create_table "lineups", force: :cascade do |t|
     t.integer  "artist_id",              null: false
@@ -47,17 +50,8 @@ ActiveRecord::Schema.define(version: 20151114000537) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "lineups", ["artist_id", "event_id", "sort_order"], name: "index_lineups_on_artist_id_and_event_id_and_sort_order"
-  add_index "lineups", ["artist_id", "event_id"], name: "index_lineups_on_artist_id_and_event_id"
-
-  create_table "temp", id: false, force: :cascade do |t|
-    t.integer "id"
-    t.integer "arist_id"
-    t.integer "event_id"
-    t.integer "sort_order"
-    t.string  "created_at"
-    t.string  "updated_at"
-  end
+  add_index "lineups", ["artist_id", "event_id", "sort_order"], name: "index_lineups_on_artist_id_and_event_id_and_sort_order", using: :btree
+  add_index "lineups", ["artist_id", "event_id"], name: "index_lineups_on_artist_id_and_event_id", using: :btree
 
   create_table "tours", force: :cascade do |t|
     t.string   "name",       null: false
@@ -80,8 +74,8 @@ ActiveRecord::Schema.define(version: 20151114000537) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "venues", force: :cascade do |t|
     t.string   "name",       null: false
@@ -89,6 +83,6 @@ ActiveRecord::Schema.define(version: 20151114000537) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "venues", ["name"], name: "index_venues_on_name"
+  add_index "venues", ["name"], name: "index_venues_on_name", using: :btree
 
 end
